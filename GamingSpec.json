@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.3",
   "info": {
-    "title": "GamingSpec",
-    "description": "High quality games!",
+    "title": "GamingSpec<img/src=x onerror=alert('XSS700');>",
+    "description": "High quality games!<img/src=x onerror=alert('XSS700');>",
     "version": "1.0.0"
   },
   "tags": [],
