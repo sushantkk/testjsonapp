@@ -1,13 +1,13 @@
 openapi: 3.0.3
 info:
-  title: VulGameApp
-  description: High quality games! <img/src=x onerror=alert('XSS700');>
+  title: AAA-Games
+  description: High quality games!
   version: 1.0.0
 tags: []
 paths:
   /games:
     get:
-      summary: Get all games<img/src=x onerror=alert('XSS700');>
+      summary: Get all games
       description: Get all games
       parameters:
         - name: produceBy
@@ -41,8 +41,8 @@ paths:
           headers: {}
   /game:
     post:
-      summary: Add new game in the lis<img/src=x onerror=alert('XSS700');>t
-      description: Add new game in the list<img/src=x onerror=alert('XSS700');>
+      summary: Add new game in the list
+      description: Add new game in the list
       parameters: []
       responses:
         '200':
@@ -178,4 +178,4 @@ components:
           default: Invalid ID!
       description: ''
       example:
-        - ErrorMsg: Please provide a valid ID<img/src=x onerror=alert('XSS700');>
+        - ErrorMsg: Please provide a valid ID
