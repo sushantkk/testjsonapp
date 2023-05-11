@@ -1,0 +1,276 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "GamingSpec",
+    "description": "High quality games!",
+    "version": "1.0.0"
+  },
+  "tags": [],
+  "paths": {
+    "/games": {
+      "get": {
+        "summary": "Get all games",
+        "description": "Get all games",
+        "parameters": [
+          {
+            "name": "produceBy",
+            "in": "query",
+            "description": "production house name",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Fetch Games List",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/game"
+                  }
+                },
+                "example": [
+                  {
+                    "title": "Super Mario",
+                    "production": "Nintendo",
+                    "rating": 8
+                  }
+                ]
+              }
+            },
+            "headers": {}
+          },
+          "401": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/authError"
+                },
+                "example": []
+              }
+            },
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/game": {
+      "post": {
+        "summary": "Add new game in the list",
+        "description": "Add new game in the list",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "success response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "default": "Game successfully added!"
+                    }
+                  }
+                },
+                "example": []
+              }
+            },
+            "headers": {}
+          },
+          "401": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/authError"
+                },
+                "example": []
+              }
+            },
+            "headers": {}
+          }
+        },
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/game"
+              },
+              "example": []
+            }
+          }
+        }
+      }
+    },
+    "/game/{gameId}": {
+      "put": {
+        "summary": "Update a game with Id",
+        "description": "Update a game with Id",
+        "parameters": [
+          {
+            "name": "gameId",
+            "in": "path",
+            "description": "Games unique Identification number",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Update Message",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "default": "Game updated successfully"
+                    }
+                  }
+                },
+                "example": []
+              }
+            },
+            "headers": {}
+          },
+          "400": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/notExistError"
+                },
+                "example": []
+              }
+            },
+            "headers": {}
+          },
+          "401": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/authError"
+                },
+                "example": []
+              }
+            },
+            "headers": {}
+          }
+        },
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/game"
+              },
+              "example": []
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Get a game with Id",
+        "description": "Get a game with Id",
+        "parameters": [
+          {
+            "name": "gameId",
+            "in": "path",
+            "description": "Games unique Identification number",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Game not exist error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/notExistError"
+                },
+                "example": []
+              }
+            },
+            "headers": {}
+          },
+          "401": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/authError"
+                },
+                "example": []
+              }
+            },
+            "headers": {}
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "game": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "default": "Red dead redemption"
+          },
+          "production": {
+            "type": "string",
+            "default": "Rockstar Games"
+          },
+          "rating": {
+            "type": "number",
+            "default": 9.4
+          }
+        },
+        "description": ""
+      },
+      "authError": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "default": "You do not have accesss!"
+          }
+        },
+        "description": ""
+      },
+      "notExistError": {
+        "type": "object",
+        "properties": {
+          "ErrorMsg": {
+            "type": "string",
+            "default": "Invalid ID!"
+          }
+        },
+        "description": "",
+        "example": [
+          {
+            "ErrorMsg": "Please provide a valid ID"
+          }
+        ]
+      }
+    }
+  }
+}
