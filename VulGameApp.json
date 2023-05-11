@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  title: <svg/onload=prompt('XSS')>
+  title: VulGameApp
   description: High quality games! <img/src=x onerror=alert('XSS700');>
   version: 1.0.0
 tags: []
